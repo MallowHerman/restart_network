@@ -32,6 +32,8 @@ def login(browser):
         input_username.send_keys(os.environ.get('LOGIN'))
         input_password.send_keys(os.environ.get('PASSWORD'))
 
+        sleep(5)
+
         button_login.click()
 
         WebDriverWait(browser, 10)
@@ -53,11 +55,17 @@ def restart(browser):
 
         button_restart.click()
 
+        sleep(2)
+
         alert = WebDriverWait(browser, 10).until(
             EC.alert_is_present()
         )
 
+        sleep(2)
+
         alert.accept()
+
+        sleep(5)
 
         WebDriverWait(browser, 5)
 
